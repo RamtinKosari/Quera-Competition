@@ -64,7 +64,7 @@ struct Child {
  * @return false 
  */
 bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
-
+    
 }
 
 /**
@@ -77,6 +77,47 @@ void setBloodTypes(std::string &father, std::string &mother, std::string &child)
     Father f;
     Mother m;
     Child c;
+    int tmpSize;
+    //-- Set Father's Blood Type
+    tmpSize = father.size();
+    for (int i = 0; i < tmpSize; i++) {
+        if (i < tmpSize - 1) {
+            f.type.push_back(father[i]);
+        } else if (i == tmpSize - 1) {
+            if (father[i] == '+') {
+                f.plus = true;
+            } else {
+                f.plus = false;
+            }
+        }
+    }
+    //-- Set Mother's Blood Type
+    tmpSize = mother.size();
+    for (int i = 0; i < tmpSize; i++) {
+        if (i < tmpSize - 1) {
+            m.type.push_back(mother[i]);
+        } else if (i == tmpSize - 1) {
+            if (mother[i] == '+') {
+                m.plus = true;
+            } else {
+                m.plus = false;
+            }
+        }
+    }
+    //-- Set Child's Blood Type
+    tmpSize = child.size();
+    for (int i = 0; i < tmpSize; i++) {
+        if (i < tmpSize - 1) {
+            c.type.push_back(child[i]);
+        } else if (i == tmpSize - 1) {
+            if (child[i] == '+') {
+                c.plus = true;
+            } else {
+                c.plus = false;
+            }
+        }
+    }
+    //-- Check Blood Types
     if (checkBloodTypes(f, m, c)) {
         std::cout << "valid" << std::endl;
     } else {
