@@ -54,3 +54,15 @@ struct Child {
      */
     bool plus;
 };
+
+int main() {
+    //-- Get Amount of 't'
+    int t;
+    std::cin >> t;
+    //-- Get Input Blood Types
+    std::string father, mother, child;
+    for (int i = 0; i < t; i++) {
+        std::cin >> father >> mother >> child;
+    }
+    return 0;
+}
