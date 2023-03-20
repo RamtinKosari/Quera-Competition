@@ -55,6 +55,36 @@ struct Child {
     bool plus;
 };
 
+/**
+ * @brief Check Blood Types
+ * @param father Father's Blood Type
+ * @param mother Mother's Blood Type
+ * @param child Child's Blood Type
+ * @return true 
+ * @return false 
+ */
+bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
+
+}
+
+/**
+ * @brief Set Blood Types
+ * @param father Father's Blood Type
+ * @param mother Mother's Blood Type
+ * @param child Child's Blood Type
+ */
+void setBloodTypes(std::string &father, std::string &mother, std::string &child) {
+    Father f;
+    Mother m;
+    Child c;
+    if (checkBloodTypes(f, m, c)) {
+        std::cout << "valid" << std::endl;
+    } else {
+        std::cout << "invalid" << std::endl;
+    }
+    
+}
+
 int main() {
     //-- Get Amount of 't'
     int t;
@@ -63,6 +93,7 @@ int main() {
     std::string father, mother, child;
     for (int i = 0; i < t; i++) {
         std::cin >> father >> mother >> child;
+        setBloodTypes(father, mother, child);
     }
     return 0;
 }
