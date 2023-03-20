@@ -15,6 +15,7 @@
 //-- Include Needed Libraries
 # include <iostream>
 # include <string>
+# include <vector>
 /**
  * @brief Structure to Store Father's Blood Type
  */
@@ -54,6 +55,11 @@ struct Child {
      */
     bool plus;
 };
+
+/**
+ * @brief Vector to Store Answers
+ */
+std::vector<std::string> answers;
 
 /**
  * @brief Check Blood Types
@@ -141,11 +147,10 @@ void setBloodTypes(std::string &father, std::string &mother, std::string &child)
     }
     //-- Check Blood Types
     if (checkBloodTypes(f, m, c)) {
-        std::cout << "valid" << std::endl;
+        answers.push_back("valid");
     } else {
-        std::cout << "invalid" << std::endl;
+        answers.push_back("invalid");
     }
-    
 }
 
 int main() {
@@ -153,10 +158,15 @@ int main() {
     int t;
     std::cin >> t;
     //-- Get Input Blood Types
+    answers.resize(0);
     std::string father, mother, child;
     for (int i = 0; i < t; i++) {
         std::cin >> father >> mother >> child;
         setBloodTypes(father, mother, child);
+    }
+    //-- Show Output
+    for (int i = 0; i < t; i++) {
+        std::cout << answers[i] << std::endl;
     }
     return 0;
 }
