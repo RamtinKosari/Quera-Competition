@@ -64,7 +64,29 @@ struct Child {
  * @return false 
  */
 bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
-    
+    bool validSign;
+    if (child.plus == father.plus || child.plus == mother.plus) {
+        validSign = true;
+    } else {
+        validSign = false
+    }
+    if (child.type != 'O') {
+        if (validSign) {
+            if (child.type == father.type || child.type == mother.type) {
+                return true
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (validSign) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 /**
