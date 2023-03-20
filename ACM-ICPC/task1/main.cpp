@@ -68,12 +68,12 @@ bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
     if (child.plus == father.plus || child.plus == mother.plus) {
         validSign = true;
     } else {
-        validSign = false
+        validSign = false;
     }
-    if (child.type != 'O') {
+    if (child.type != "O") {
         if (validSign) {
             if (child.type == father.type || child.type == mother.type) {
-                return true
+                return true;
             } else {
                 return false;
             }
