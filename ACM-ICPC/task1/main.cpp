@@ -70,6 +70,40 @@ std::vector<std::string> answers;
  * @return false 
  */
 bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
+    if (child.type == "O") {
+        if (child.plus == false) {
+            return true;
+        } else {
+            if (father.plus == true || mother.plus == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    } else {
+        if (child.type == "AB") {
+            if ((father.type == "B" && mother.type == "A") || (father.type == "A" && mother.type == "B") || (father.type == "AB") || (mother.type == "AB")) {
+                if (child.plus == father.plus || child.plus == mother.plus) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            if (child.type == father.type || child.type == mother.type) {
+                if (child.plus == father.plus || child.plus == mother.plus) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+
     bool validSign;
     if (child.plus == father.plus || child.plus == mother.plus) {
         validSign = true;
@@ -87,7 +121,7 @@ bool checkBloodTypes(Father &father, Mother &mother, Child &child) {
             return false;
         }
     } else {
-        if (validSign) {
+        if (child.plus = false || validSign) {
             return true;
         } else {
             return false;
